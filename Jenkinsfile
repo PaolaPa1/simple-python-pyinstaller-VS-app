@@ -2,7 +2,7 @@ pipeline {
     agent none
 
      environment {
-        DOCKER_HOST = 'tcp://jenkins-docker:2375' // Dove "docker" è il nome del container Docker
+        DOCKER_HOST = 'tcp://jenkins-docker:2376' // Dove "docker" è il nome del container Docker
     }
     options {
         skipStagesAfterUnstable()
@@ -12,7 +12,6 @@ pipeline {
             agent {
                 docker {
                     image 'python:3.12.0-alpine3.18'
-                    args '-p 3000:3000'
                 }
             }
             steps {

@@ -19,8 +19,8 @@ resource "docker_container" "jenkins_docker" {
   image        = "docker:dind"
   network_mode = docker_network.jenkins_network.name
   ports {
-    internal = 2375
-    external = 2375
+    internal = 2376
+    external = 2376
   }
 
   ports {
