@@ -23,6 +23,16 @@ resource "docker_container" "jenkins_docker" {
     external = 2376
   }
 
+  ports {
+    internal = 3000
+    external = 3000
+  }
+
+  ports {
+    internal = 5000
+    external = 5000
+  }
+
   env = [
     "DOCKER_TLS_CERTDIR = /certs"
   ]
@@ -40,7 +50,12 @@ resource "docker_container" "jenkins_docker" {
     volume_name    = "jenkins-data"
     container_path = "/var/jenkins_home"
   }
-  
+
+  volumes {
+    volume_name    = "jenkins-socket"
+    container_path = "/var/run/docker.sock"
+  }
+
   networks_advanced {
     name    = docker_network.jenkins_network.name
     aliases = ["red_jenkins"]
