@@ -19,8 +19,8 @@ resource "docker_container" "jenkins_docker" {
   image        = "docker:dind"
   network_mode = docker_network.jenkins_network.name
   ports {
-    internal = 2376
-    external = 2376
+    internal = 2375
+    external = 2375
   }
 
   ports {
@@ -50,7 +50,7 @@ resource "docker_container" "jenkins_docker" {
     volume_name    = "jenkins-data"
     container_path = "/var/jenkins_home"
   }
-  
+
   networks_advanced {
     name    = docker_network.jenkins_network.name
     aliases = ["red_jenkins"]
