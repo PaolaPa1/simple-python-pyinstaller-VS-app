@@ -6,7 +6,7 @@ resource "docker_image" "myjenkins_bo" {
 resource "docker_container" "jenkins_blueocean" {
   name  = "jenkins-blueocean"
   image = docker_image.myjenkins_bo.name
-  #detach = true
+  
   # Se reinicia automáticamente en caso de error
   #restart = on-failure
 

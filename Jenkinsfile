@@ -1,5 +1,9 @@
 pipeline {
     agent none
+
+     environment {
+        DOCKER_HOST = 'tcp://jenkins-docker:2376' // Dove "docker" è il nome del container Docker
+    }
     options {
         skipStagesAfterUnstable()
     }
