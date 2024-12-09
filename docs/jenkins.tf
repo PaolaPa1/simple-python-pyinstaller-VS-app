@@ -38,11 +38,6 @@ resource "docker_container" "jenkins_blueocean" {
     container_path= "/certs/client"
     read_only = true
   }
-
-  volumes {
-    volume_name    = "jenkins-socket"
-    container_path = "/var/run/docker.sock"
-  }
   
   ports {
     internal = 8080

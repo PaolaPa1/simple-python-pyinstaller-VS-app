@@ -50,12 +50,7 @@ resource "docker_container" "jenkins_docker" {
     volume_name    = "jenkins-data"
     container_path = "/var/jenkins_home"
   }
-
-  volumes {
-    volume_name    = "jenkins-socket"
-    container_path = "/var/run/docker.sock"
-  }
-
+  
   networks_advanced {
     name    = docker_network.jenkins_network.name
     aliases = ["red_jenkins"]
