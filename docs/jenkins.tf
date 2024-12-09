@@ -16,7 +16,7 @@ resource "docker_container" "jenkins_blueocean" {
   # Variables de entorno
   env = [
     "DOCKER_HOST = tcp://jenkins-docker:2376",
-    "DOCKER_CERT_PATH = /certs/client",
+    #"DOCKER_CERT_PATH = /certs/client",
     "DOCKER_TLS_VERIFY = 1"
   ]
 
